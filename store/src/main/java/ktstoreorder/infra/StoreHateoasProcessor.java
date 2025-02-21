@@ -19,8 +19,8 @@ public class StoreHateoasProcessor
         );
         model.add(
             Link
-                .of(model.getRequiredLink("self").getHref() + "/픽업안내")
-                .withRel("픽업안내")
+                .of(model.getRequiredLink("self").getHref() + "/notifypickup")
+                .withRel("notifypickup")
         );
         model.add(
             Link

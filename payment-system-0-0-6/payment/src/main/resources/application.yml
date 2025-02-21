@@ -31,12 +31,12 @@ spring:
         event-in:
           group: payment
 #<<< EDA / Topic Name
-          destination: paymentsystem
+          destination: ktstoreorder
 #>>> EDA / Topic Name
           contentType: application/json
         event-out:
 #<<< EDA / Topic Name
-          destination: paymentsystem
+          destination: ktstoreorder
 #>>> EDA / Topic Name
           contentType: application/json
 
@@ -47,7 +47,7 @@ logging:
 
 
 server:
-  port: 8082
+  port: 8032
 
 ---
 
@@ -75,10 +75,10 @@ spring:
       bindings:
         event-in:
           group: payment
-          destination: paymentsystem
+          destination: ktstoreorder
           contentType: application/json
         event-out:
-          destination: paymentsystem
+          destination: ktstoreorder
           contentType: application/json
 
 

@@ -47,7 +47,8 @@ logging:
 
 api:
   url: 
-    reservation: localhost:0 
+    marketing: localhost:8084
+    reservation: localhost:8072
     
 
 server:
@@ -86,7 +87,8 @@ spring:
           contentType: application/json
 
 api:
-  url: 
+  url:
+    marketing: marketing:8080 
     reservation: reservation:8080 
     
 

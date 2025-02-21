@@ -43,7 +43,7 @@ public class StoreController {
     }
 
     @RequestMapping(
-        value = "/stores/{id}/픽업안내",
+        value = "/stores/{id}/notifypickup",
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )

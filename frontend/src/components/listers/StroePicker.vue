@@ -71,14 +71,14 @@
         }),
         async created() {
             var me = this;
-            var temp = await axios.get(axios.fixUrl('/stroes'))
+            var temp = await axios.get(axios.fixUrl('/stores'))
             if(temp.data) {
-                me.list = temp.data._embedded.stroes;
+                me.list = temp.data._embedded.stores;
             }
 
             if(me.value && typeof me.value == "object" && Object.values(me.value)[0]) {
                 var id = Object.values(me.value)[0];
-                var tmpValue = await axios.get(axios.fixUrl('/stroes/' + id))
+                var tmpValue = await axios.get(axios.fixUrl('/stores/' + id))
                 if(tmpValue.data) {
                     var val = tmpValue.data
                     me.list.forEach(function(item, idx) {

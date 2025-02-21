@@ -127,9 +127,9 @@
                 return;
             } 
 
-            var temp = await axios.get(axios.fixUrl('/stroes'))
-            temp.data._embedded.stroes.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
-            this.values = temp.data._embedded.stroes;
+            var temp = await axios.get(axios.fixUrl('/stores'))
+            temp.data._embedded.stores.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
+            this.values = temp.data._embedded.stores;
             
             this.newValue = {
                 'storeInfo': '',

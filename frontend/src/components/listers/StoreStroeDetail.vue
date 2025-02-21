@@ -86,7 +86,7 @@
         async created() {
             var me = this;
             var params = this.$route.params;
-            var temp = await axios.get(axios.fixUrl('/stroes/' + params.id))
+            var temp = await axios.get(axios.fixUrl('/stores/' + params.id))
             if(temp.data) {
                 me.item = temp.data
             }

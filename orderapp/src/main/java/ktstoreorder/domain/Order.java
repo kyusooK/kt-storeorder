@@ -48,7 +48,7 @@ public class Order  {
     private UserId userId;
     
     @Embedded
-    private StroeId stroeId;
+    private StoreId storeId;
     
     @ElementCollection
     private List<MenuId> menuIds;

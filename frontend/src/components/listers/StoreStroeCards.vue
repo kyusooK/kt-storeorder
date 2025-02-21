@@ -104,8 +104,8 @@
                 return;
             } 
 
-            var temp = await axios.get(axios.fixUrl('/stroes'))
-            me.values = temp.data._embedded.stroes;
+            var temp = await axios.get(axios.fixUrl('/stores'))
+            me.values = temp.data._embedded.stores;
             
             me.newValue = {
                 'storeInfo': '',

@@ -48,8 +48,8 @@ public class Store  {
     
     private String marketInfo;
 
-    public static StroeRepository repository(){
-        StroeRepository stroeRepository = StoreApplication.applicationContext.getBean(StroeRepository.class);
+    public static StoreRepository repository(){
+        StoreRepository stroeRepository = StoreApplication.applicationContext.getBean(StoreRepository.class);
         return stroeRepository;
     }
 
