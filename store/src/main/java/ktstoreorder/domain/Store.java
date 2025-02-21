@@ -126,15 +126,12 @@ public class Store  {
     }
 //>>> Clean Arch / Port Method
 
-//>>> Clean Arch / Port Method
 //<<< Clean Arch / Port Method
     public static void receiveMarketingInfo(ReservationCreated reservationCreated){
-        
-        
-
-        
+        // repository().findById(reservationCreated.getTargetUserIds()).ifPresent(store->{
+        //  store.setMarketingInfo(reservationCreated.getDescription());
+        // });
     }
-//>>> Clean Arch / Port Method
 
 
 }
