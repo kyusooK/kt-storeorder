@@ -2,6 +2,7 @@ package ktstoreorder.infra;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import ktstoreorder.config.kafka.KafkaProcessor;
 import ktstoreorder.domain.*;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class OrderPageViewHandler {
@@ -43,9 +46,12 @@ public class OrderPageViewHandler {
     public void whenCooked_then_UPDATE_1(@Payload Cooked cooked) {
         try {
             if (!cooked.validate()) return;
+
+            ObjectMapper mapper = new ObjectMapper();
+            Map<Long, Object> storeMap = mapper.convertValue(cooked.getOrderId(), Map.class);
             // view 객체 조회
             Optional<OrderPage> orderPageOptional = orderPageRepository.findById(
-                Long.valueOf(cooked.getOrderId())
+                Long.valueOf(storeMap.get("id").toString())
             );
 
             if (orderPageOptional.isPresent()) {
@@ -69,8 +75,12 @@ public class OrderPageViewHandler {
         try {
             if (!pickUpNotified.validate()) return;
             // view 객체 조회
+
+            ObjectMapper mapper = new ObjectMapper();
+            Map<Long, Object> storeMap = mapper.convertValue(pickUpNotified.getOrderId(), Map.class);
+
             Optional<OrderPage> orderPageOptional = orderPageRepository.findById(
-                Long.valueOf(pickUpNotified.getOrderId())
+                Long.valueOf(storeMap.get("id").toString())
             );
 
             if (orderPageOptional.isPresent()) {
