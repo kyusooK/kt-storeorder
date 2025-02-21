@@ -18,62 +18,37 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 //<<< DDD / Aggregate Root
 public class Order  {
-
-
-    
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
     private Long id;
-    
-    
-    
     
     private String requestInfo;
     
-    
-    
-    
     private String price;
-    
-    
     
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     
-    
-    
-    
     private String paymentId;
     
-    
-    
-    
     private String paymentStatus;
-    
-    
     
     @Embedded
     private UserId userId;
     
-    
-    
     @Embedded
     private StroeId stroeId;
-    
-    
     
     @ElementCollection
     private List<MenuId> menuId;
 
     @PostPersist
     public void onPostPersist(){
-    Menu menu = OrderApplication.applicationContext
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Long, Object> menuMap = mapper.convertValue(getMenuId(), Map.class);
+        List<Menu> menu = OrderApplication.applicationContext
         .getBean(ktstoreorder.external.MenuService.class)
-        .getMenu(get??);
+        .getMenu((Long)menuMap.get("id"));
 
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
