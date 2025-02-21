@@ -40,7 +40,7 @@ public class Order  {
     private StroeId stroeId;
     
     @ElementCollection
-    private List<MenuId> menuId;
+    private List<MenuIds> menuIds;
 
     @PostPersist
     public void onPostPersist(){

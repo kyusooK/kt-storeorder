@@ -60,7 +60,7 @@
                             [ PaymentStatus :  {{data.paymentStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UserId :  {{data.userId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ StroeId :  {{data.stroeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ MenuId :  {{data.menuId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ MenuIds :  {{data.menuIds }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -135,7 +135,7 @@
                 'paymentStatus': '',
                 'userId': {},
                 'stroeId': {},
-                'menuId': [],
+                'menuIds': [],
             }
         },
         methods: {

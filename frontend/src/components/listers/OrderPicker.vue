@@ -36,7 +36,7 @@
                                 StroeId :  {{item.stroeId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                MenuId :  {{item.menuId }}
+                                MenuIds :  {{item.menuIds }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

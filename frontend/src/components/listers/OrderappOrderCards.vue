@@ -115,7 +115,7 @@
                 'paymentStatus': '',
                 'userId': {},
                 'stroeId': {},
-                'menuId': [],
+                'menuIds': [],
             }
         },
         methods:{
