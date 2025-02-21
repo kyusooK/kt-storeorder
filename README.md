@@ -35,7 +35,7 @@ mvn spring-boot:run
 ## Test by API
 - orderapp
 ```
- http :8088/orders id="id"requestInfo="requestInfo"price="price"OrderStatus = "ORDERPLACED"paymentId="paymentId"paymentStatus="paymentStatus"UserId := '{"id": 0}'StroeId := '{"id": 0}'
+ http :8088/orders id="id"requestInfo="requestInfo"price="price"OrderStatus = "ORDERPLACED"paymentId="paymentId"paymentStatus="paymentStatus"UserId := '{"id": 0}'StroeId := '{"id": 0}'orderInfo="orderInfo"
 ```
 - user
 ```

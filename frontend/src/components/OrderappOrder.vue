@@ -17,13 +17,14 @@
 
         <v-card-text style="background-color: white;">
             <String label="주문요청서" v-model="value.requestInfo" :editMode="editMode" :inputUI="''"/>
-            <String label="음식 가격" v-model="value.price" :editMode="editMode" :inputUI="''"/>
+            <Number label="음식 가격" v-model="value.price" :editMode="editMode" :inputUI="''"/>
             <OrderStatus offline label="주문상태" v-model="value.orderStatus" :editMode="editMode" @change="change"/>
             <String label="결제정보" v-model="value.paymentId" :editMode="editMode" :inputUI="''"/>
             <String label="결제 상태" v-model="value.paymentStatus" :editMode="editMode" :inputUI="''"/>
             <UserId offline label="userId" v-model="value.userId" :editMode="editMode" @change="change"/>
             <StroeId offline label="stroeId" v-model="value.stroeId" :editMode="editMode" @change="change"/>
             <MenuIdManager offline label="menuIds" v-model="value.menuIds" :editMode="editMode" @change="change"/>
+            <String label="주문정보" v-model="value.orderInfo" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

@@ -37,7 +37,7 @@ public class Order  {
     
     
     
-    private String price;
+    private Long price;
     
     
     
@@ -68,6 +68,11 @@ public class Order  {
     
     @ElementCollection
     private List<MenuIds> menuIds;
+    
+    
+    
+    
+    private String orderInfo;
 
     @PostPersist
     public void onPostPersist(){

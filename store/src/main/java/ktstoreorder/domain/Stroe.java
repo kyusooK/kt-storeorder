@@ -85,10 +85,13 @@ public class Stroe  {
         return stroeRepository;
     }
 
+    public void 조리(){
+        //
+    }
 
 
 //<<< Clean Arch / Port Method
-    public void 조리(조리Command 조리Command){
+    public void cook(CookCommand cookCommand){
         
         //implement business logic here:
         
@@ -99,7 +102,7 @@ public class Stroe  {
     }
 //>>> Clean Arch / Port Method
 //<<< Clean Arch / Port Method
-    public void 픽업안내(픽업안내Command 픽업안내Command){
+    public void notifyPickup(NotifyPickupCommand notifyPickupCommand){
         
         //implement business logic here:
         
