@@ -11,4 +11,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 //<<< PoEAA / Repository
 @RepositoryRestResource(collectionResourceRel = "stroes", path = "stroes")
 public interface StroeRepository
-    extends PagingAndSortingRepository<Stroe, Long> {}
+    extends PagingAndSortingRepository<Store, Long> {}
