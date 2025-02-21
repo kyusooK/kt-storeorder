@@ -132,8 +132,8 @@ public class Order  {
         // if orderAccepted.menuIdorderId exists, use it
         
         // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> stroeMap = mapper.convertValue(orderAccepted.getMenuId(), Map.class);
-        // Map<Long, Object> stroeMap = mapper.convertValue(orderAccepted.getOrderId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(orderAccepted.getMenuId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(orderAccepted.getOrderId(), Map.class);
 
         repository().findById(orderAccepted.get???()).ifPresent(order->{
             
@@ -167,8 +167,8 @@ public class Order  {
         // if cooked.menuIdorderId exists, use it
         
         // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> stroeMap = mapper.convertValue(cooked.getMenuId(), Map.class);
-        // Map<Long, Object> stroeMap = mapper.convertValue(cooked.getOrderId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(cooked.getMenuId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(cooked.getOrderId(), Map.class);
 
         repository().findById(cooked.get???()).ifPresent(order->{
             
@@ -202,8 +202,8 @@ public class Order  {
         // if pickUpNotified.menuIdorderId exists, use it
         
         // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> stroeMap = mapper.convertValue(pickUpNotified.getMenuId(), Map.class);
-        // Map<Long, Object> stroeMap = mapper.convertValue(pickUpNotified.getOrderId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(pickUpNotified.getMenuId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(pickUpNotified.getOrderId(), Map.class);
 
         repository().findById(pickUpNotified.get???()).ifPresent(order->{
             

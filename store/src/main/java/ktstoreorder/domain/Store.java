@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Entity
-@Table(name="Stroe_table")
+@Table(name="Store_table")
 @Data
 
 //<<< DDD / Aggregate Root
@@ -53,7 +53,7 @@ public class Store  {
         return stroeRepository;
     }
 
-    //<<< Clean Arch / Port Method
+//<<< Clean Arch / Port Method
     public void approveStore(){
         
         repository().findById(this.getId()).ifPresent(store ->{

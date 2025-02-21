@@ -20,8 +20,8 @@ import MarketingCouponDetail from "./components/listers/MarketingCouponDetail"
 
 import StoreMenuManager from "./components/listers/StoreMenuCards"
 import StoreMenuDetail from "./components/listers/StoreMenuDetail"
-import StoreStroeManager from "./components/listers/StoreStroeCards"
-import StoreStroeDetail from "./components/listers/StoreStroeDetail"
+import StoreStoreManager from "./components/listers/StoreStoreCards"
+import StoreStoreDetail from "./components/listers/StoreStoreDetail"
 
 import GetMenuView from "./components/GetMenuView"
 import GetMenuViewDetail from "./components/GetMenuViewDetail"
@@ -94,14 +94,14 @@ export default new Router({
                 component: StoreMenuDetail
             },
             {
-                path: '/stores/stroes',
-                name: 'StoreStroeManager',
-                component: StoreStroeManager
+                path: '/stores/stores',
+                name: 'StoreStoreManager',
+                component: StoreStoreManager
             },
             {
-                path: '/stores/stroes/:id',
-                name: 'StoreStroeDetail',
-                component: StoreStroeDetail
+                path: '/stores/stores/:id',
+                name: 'StoreStoreDetail',
+                component: StoreStoreDetail
             },
 
             {

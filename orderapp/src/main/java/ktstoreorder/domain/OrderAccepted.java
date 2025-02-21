@@ -13,5 +13,5 @@ public class OrderAccepted extends AbstractEvent {
     private Object menuId;
     private String orderInfo;
     private String requestInfo;
-    private Object foodStatus;
+    private Object orderId;
 }

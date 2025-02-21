@@ -15,19 +15,37 @@
                             <v-list-item-title>
                             </v-list-item-title>
                             <v-list-item-subtitle>
-                                PromotionName :  {{item.promotionName }}
+                                StoreInfo :  {{item.storeInfo }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Content :  {{item.content }}
+                                HealthCertificate :  {{item.healthCertificate }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                StartAt :  {{item.startAt }}
+                                StoreApproval :  {{item.storeApproval }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                EndAt :  {{item.endAt }}
+                                OrderInfo :  {{item.orderInfo }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                StoreId :  {{item.storeId }}
+                                RequestInfo :  {{item.requestInfo }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                FoodStatus :  {{item.foodStatus }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                ReviewId :  {{item.reviewId }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                MenuId :  {{item.menuId }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                OrderId :  {{item.orderId }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                MarketInfo :  {{item.marketInfo }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                StoreLocation :  {{item.storeLocation }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 
@@ -46,7 +64,7 @@
     const axios = require('axios').default;
 
     export default {
-        name: 'MarketingPromotionPicker',
+        name: 'StoreStorePicker',
         props: {
             value: [String, Object, Array, Number, Boolean],
         },
@@ -56,14 +74,14 @@
         }),
         async created() {
             var me = this;
-            var temp = await axios.get(axios.fixUrl('/promotions'))
+            var temp = await axios.get(axios.fixUrl('/stores'))
             if(temp.data) {
-                me.list = temp.data._embedded.promotions;
+                me.list = temp.data._embedded.stores;
             }
 
             if(me.value && typeof me.value == "object" && Object.values(me.value)[0]) {
                 var id = Object.values(me.value)[0];
-                var tmpValue = await axios.get(axios.fixUrl('/promotions/' + id))
+                var tmpValue = await axios.get(axios.fixUrl('/stores/' + id))
                 if(tmpValue.data) {
                     var val = tmpValue.data
                     me.list.forEach(function(item, idx) {
@@ -80,6 +98,18 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['id'] = arr[4]; 
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     

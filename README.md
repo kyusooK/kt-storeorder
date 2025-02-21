@@ -43,13 +43,13 @@ mvn spring-boot:run
 ```
 - marketing
 ```
- http :8088/promotions id="id"promotionName="promotionName"content="content"startAt="startAt"endAt="endAt"
+ http :8088/promotions id="id"promotionName="promotionName"content="content"startAt="startAt"endAt="endAt"StoreId := '{"id": 0}'
  http :8088/coupons id="id"couponName="couponName"content="content"
 ```
 - store
 ```
  http :8088/menus id="id"menuName="menuName"price="price"menuInfo="menuInfo"ingredients="ingredients"
- http :8088/stroes id="id"storeInfo="storeInfo"healthCertificate=" healthCertificate"storeApproval="storeApproval"orderInfo="orderInfo"requestInfo="requestInfo"FoodStatus = "ACCEPTED"reviewId="reviewId"MenuId := '{"id": 0}'OrderId := '{"id": 0}'marketInfo="marketInfo"
+ http :8088/stores id="id"storeInfo="storeInfo"healthCertificate=" healthCertificate"storeApproval="storeApproval"orderInfo="orderInfo"requestInfo="requestInfo"FoodStatus = "ACCEPTED"reviewId="reviewId"MenuId := '{"id": 0}'OrderId := '{"id": 0}'marketInfo="marketInfo"storeLocation="storeLocation"
 ```
 
 

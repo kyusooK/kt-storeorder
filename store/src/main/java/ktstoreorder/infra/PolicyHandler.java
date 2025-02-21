@@ -21,7 +21,7 @@ public class PolicyHandler {
     MenuRepository menuRepository;
 
     @Autowired
-    StroeRepository stroeRepository;
+    StoreRepository storeRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}

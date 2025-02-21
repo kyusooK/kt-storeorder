@@ -11,4 +11,5 @@ public class Cooked extends AbstractEvent {
 
     private Long id;
     private Object foodStatus;
+    private Object orderId;
 }

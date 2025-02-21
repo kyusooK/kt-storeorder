@@ -1,23 +1,37 @@
 <template>
     <v-card outlined>
         <v-card-title>
-            Promotion # {{item._links.self.href.split("/")[item._links.self.href.split("/").length - 1]}}
+            Store # {{item._links.self.href.split("/")[item._links.self.href.split("/").length - 1]}}
         </v-card-title>
 
         <v-card-text>
             <div>
-                <String label="PromotionName" v-model="item.promotionName" :editMode="editMode" @change="change" />
+                <String label="StoreInfo" v-model="item.storeInfo" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="Content" v-model="item.content" :editMode="editMode" @change="change" />
+                <String label="HealthCertificate" v-model="item.healthCertificate" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Date label="StartAt" v-model="item.startAt" :editMode="editMode" @change="change" />
+                <Boolean label="StoreApproval" v-model="item.storeApproval" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Date label="EndAt" v-model="item.endAt" :editMode="editMode" @change="change" />
+                <String label="OrderInfo" v-model="item.orderInfo" :editMode="editMode" @change="change" />
             </div>
-            <StoreId offline label="StoreId" v-model="item.storeId" :editMode="false" :key="false" @change="change" />
+            <div>
+                <String label="RequestInfo" v-model="item.requestInfo" :editMode="editMode" @change="change" />
+            </div>
+            <FoodStatus offline label="FoodStatus" v-model="item.foodStatus" :editMode="false" :key="false" @change="change" />
+            <div>
+                <String label="ReviewId" v-model="item.reviewId" :editMode="editMode" @change="change" />
+            </div>
+            <MenuId offline label="MenuId" v-model="item.menuId" :editMode="false" :key="false" @change="change" />
+            <OrderId offline label="OrderId" v-model="item.orderId" :editMode="false" :key="false" @change="change" />
+            <div>
+                <String label="MarketInfo" v-model="item.marketInfo" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="StoreLocation" v-model="item.storeLocation" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>
@@ -64,7 +78,7 @@
     const axios = require('axios').default;
 
     export default {
-        name: 'MarketingPromotionDetail',
+        name: 'StoreStoreDetail',
         components:{},
         props: {
         },
@@ -75,7 +89,7 @@
         async created() {
             var me = this;
             var params = this.$route.params;
-            var temp = await axios.get(axios.fixUrl('/promotions/' + params.id))
+            var temp = await axios.get(axios.fixUrl('/stores/' + params.id))
             if(temp.data) {
                 me.item = temp.data
             }

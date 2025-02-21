@@ -1,6 +1,6 @@
 <template>
     <div>
-    <h1>프로모션</h1>
+    <h1>가게</h1>
         <v-row>
             <v-card
                 class="mx-auto"
@@ -26,7 +26,7 @@
                         color="primary"
                         style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                     >
-                        프로모션 등록
+                        가게 등록
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -46,15 +46,27 @@
                             
                             
                             
+                            
+                            
+                            
+                            
+                            
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ PromotionName :  {{data.promotionName }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Content :  {{data.content }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ StartAt :  {{data.startAt }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ EndAt :  {{data.endAt }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ StoreId :  {{data.storeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ StoreInfo :  {{data.storeInfo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ HealthCertificate :  {{data.healthCertificate }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ StoreApproval :  {{data.storeApproval }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ OrderInfo :  {{data.orderInfo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ RequestInfo :  {{data.requestInfo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ FoodStatus :  {{data.foodStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ ReviewId :  {{data.reviewId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ MenuId :  {{data.menuId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ MarketInfo :  {{data.marketInfo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ StoreLocation :  {{data.storeLocation }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -74,7 +86,7 @@
                         transition="dialog-bottom-transition"
                 >
 
-                    <MarketingPromotion :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
+                    <StoreStore :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
                 
                     <v-btn
                         class="gs-close-btn"
@@ -93,12 +105,12 @@
 
 <script>
     const axios = require('axios').default;
-    import MarketingPromotion from './../MarketingPromotion.vue';
+    import StoreStore from './../StoreStore.vue';
 
     export default {
-        name: 'MarketingPromotionManager',
+        name: 'StoreStoreManager',
         components: {
-            MarketingPromotion,
+            StoreStore,
         },
         props: {
             offline: Boolean,
@@ -117,16 +129,22 @@
                 return;
             } 
 
-            var temp = await axios.get(axios.fixUrl('/promotions'))
-            temp.data._embedded.promotions.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
-            this.values = temp.data._embedded.promotions;
+            var temp = await axios.get(axios.fixUrl('/stores'))
+            temp.data._embedded.stores.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
+            this.values = temp.data._embedded.stores;
             
             this.newValue = {
-                'promotionName': '',
-                'content': '',
-                'startAt': '2025-02-21',
-                'endAt': '2025-02-21',
-                'storeId': {},
+                'storeInfo': '',
+                'healthCertificate': '',
+                'storeApproval': false,
+                'orderInfo': '',
+                'requestInfo': '',
+                'foodStatus': '',
+                'reviewId': '',
+                'menuId': {},
+                'orderId': {},
+                'marketInfo': '',
+                'storeLocation': '',
             }
         },
         methods: {
