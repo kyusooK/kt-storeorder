@@ -2,6 +2,7 @@ package ktstoreorder.domain;
 
 import ktstoreorder.domain.OrderPlaced;
 import ktstoreorder.domain.OrderStatusUpdated;
+import ktstoreorder.external.Menu;
 import ktstoreorder.OrderappApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +10,8 @@ import lombok.Data;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -24,7 +27,7 @@ public class Order  {
     
     private String requestInfo;
     
-    private String price;
+    private Long price;
     
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
@@ -32,6 +35,8 @@ public class Order  {
     private String paymentId;
     
     private String paymentStatus;
+
+    private String orderInfo;
     
     @Embedded
     private UserId userId;
@@ -40,26 +45,31 @@ public class Order  {
     private StroeId stroeId;
     
     @ElementCollection
-    private List<MenuIds> menuIds;
+    private List<MenuId> menuIds;
 
     @PostPersist
     public void onPostPersist(){
         ObjectMapper mapper = new ObjectMapper();
-        Map<Long, Object> menuMap = mapper.convertValue(getMenuId(), Map.class);
-        List<Menu> menu = OrderApplication.applicationContext
+        Map<Long, Object> menuMap = mapper.convertValue(getMenuIds(), Map.class);
+        List<Long> menuIds = (List<Long>) menuMap.get("id");
+        List<Menu> menus = OrderappApplication.applicationContext
         .getBean(ktstoreorder.external.MenuService.class)
-        .getMenu((Long)menuMap.get("id"));
+        .getMenu(menuIds);
+
+        Long totalPrice = menus.stream()
+        .map(Menu::getPrice)
+        .reduce(0L, Long::sum);
+
+        String MenuInfo = "주문한 음식: " + menus.stream()
+        .map(Menu::getMenuName)
+        .collect(Collectors.joining(", "));
+
+        this.setPrice(totalPrice);
+        this.setOrderInfo(MenuInfo);
 
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
-
-
-
-        OrderStatusUpdated orderStatusUpdated = new OrderStatusUpdated(this);
-        orderStatusUpdated.publishAfterCommit();
-
-    
     }
 
     public static OrderRepository repository(){
