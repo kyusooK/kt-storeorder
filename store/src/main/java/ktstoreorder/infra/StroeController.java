@@ -25,18 +25,18 @@ public class StroeController {
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )
-    public Stroe 조리(
+    public Stroe cook(
         @PathVariable(value = "id") Long id,
-        @RequestBody 조리Command 조리Command,
+        @RequestBody CookCommand cookCommand,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
-        System.out.println("##### /stroe/조리  called #####");
+        System.out.println("##### /stroe/cook  called #####");
         Optional<Stroe> optionalStroe = stroeRepository.findById(id);
 
         optionalStroe.orElseThrow(() -> new Exception("No Entity Found"));
         Stroe stroe = optionalStroe.get();
-        stroe.조리(조리Command);
+        stroe.cook(cookCommand);
 
         stroeRepository.save(stroe);
         return stroe;
@@ -47,18 +47,18 @@ public class StroeController {
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )
-    public Stroe 픽업안내(
+    public Stroe notifyPickup(
         @PathVariable(value = "id") Long id,
-        @RequestBody 픽업안내Command 픽업안내Command,
+        @RequestBody NotifyPickupCommand notifyPickupCommand,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
-        System.out.println("##### /stroe/픽업안내  called #####");
+        System.out.println("##### /stroe/notifyPickup  called #####");
         Optional<Stroe> optionalStroe = stroeRepository.findById(id);
 
         optionalStroe.orElseThrow(() -> new Exception("No Entity Found"));
         Stroe stroe = optionalStroe.get();
-        stroe.픽업안내(픽업안내Command);
+        stroe.notifyPickup(notifyPickupCommand);
 
         stroeRepository.save(stroe);
         return stroe;

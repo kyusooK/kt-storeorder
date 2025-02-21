@@ -109,13 +109,14 @@
             
             me.newValue = {
                 'requestInfo': '',
-                'price': '',
+                'price': 0,
                 'orderStatus': '',
                 'paymentId': '',
                 'paymentStatus': '',
                 'userId': {},
                 'stroeId': {},
                 'menuIds': [],
+                'orderInfo': '',
             }
         },
         methods:{

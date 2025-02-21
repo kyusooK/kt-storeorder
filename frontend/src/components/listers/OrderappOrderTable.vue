@@ -75,6 +75,7 @@
                     { text: "userId", value: "userId" },
                     { text: "stroeId", value: "stroeId" },
                     { text: "menuIds", value: "menuIds" },
+                    { text: "orderInfo", value: "orderInfo" },
                 ],
             order : [],
             newValue: {},
@@ -93,13 +94,14 @@
 
             this.newValue = {
                 'requestInfo': '',
-                'price': '',
+                'price': 0,
                 'orderStatus': '',
                 'paymentId': '',
                 'paymentStatus': '',
                 'userId': {},
                 'stroeId': {},
                 'menuIds': [],
+                'orderInfo': '',
             }
         },
         methods: {

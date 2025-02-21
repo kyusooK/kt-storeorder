@@ -70,29 +70,29 @@
                 v-if="!editMode"
                 color="primary"
                 text
-                @click="open조리"
+                @click="openCook"
             >
-                조리
+                Cook
             </v-btn>
-            <v-dialog v-model="조리Diagram" width="500">
-                <조리Command
-                    @closeDialog="close조리"
-                    @조리="조리"
-                ></조리Command>
+            <v-dialog v-model="cookDiagram" width="500">
+                <CookCommand
+                    @closeDialog="closeCook"
+                    @cook="cook"
+                ></CookCommand>
             </v-dialog>
             <v-btn
                 v-if="!editMode"
                 color="primary"
                 text
-                @click="open픽업안내"
+                @click="openNotifyPickup"
             >
-                픽업안내
+                NotifyPickup
             </v-btn>
-            <v-dialog v-model="픽업안내Diagram" width="500">
-                <픽업안내Command
-                    @closeDialog="close픽업안내"
-                    @픽업안내="픽업안내"
-                ></픽업안내Command>
+            <v-dialog v-model="notifyPickupDiagram" width="500">
+                <NotifyPickupCommand
+                    @closeDialog="closeNotifyPickup"
+                    @notifyPickup="notifyPickup"
+                ></NotifyPickupCommand>
             </v-dialog>
             <v-btn
                 v-if="!editMode"
@@ -139,8 +139,8 @@
                 timeout: 5000,
                 text: '',
             },
-            조리Diagram: false,
-            픽업안내Diagram: false,
+            cookDiagram: false,
+            notifyPickupDiagram: false,
         }),
 	async created() {
         },
@@ -238,7 +238,7 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async 조리(params) {
+            async cook(params) {
                 try {
                     if(!this.offline) {
                         var temp = await axios.put(axios.fixUrl(this.value._links['조리'].href), params)
@@ -248,7 +248,7 @@
                     }
 
                     this.editMode = false;
-                    this.close조리();
+                    this.closeCook();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -258,13 +258,13 @@
                     }
                 }
             },
-            open조리() {
-                this.조리Diagram = true;
+            openCook() {
+                this.cookDiagram = true;
             },
-            close조리() {
-                this.조리Diagram = false;
+            closeCook() {
+                this.cookDiagram = false;
             },
-            async 픽업안내(params) {
+            async notifyPickup(params) {
                 try {
                     if(!this.offline) {
                         var temp = await axios.put(axios.fixUrl(this.value._links['픽업안내'].href), params)
@@ -274,7 +274,7 @@
                     }
 
                     this.editMode = false;
-                    this.close픽업안내();
+                    this.closeNotifyPickup();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -284,11 +284,11 @@
                     }
                 }
             },
-            open픽업안내() {
-                this.픽업안내Diagram = true;
+            openNotifyPickup() {
+                this.notifyPickupDiagram = true;
             },
-            close픽업안내() {
-                this.픽업안내Diagram = false;
+            closeNotifyPickup() {
+                this.notifyPickupDiagram = false;
             },
             async approveStore() {
                 try {
