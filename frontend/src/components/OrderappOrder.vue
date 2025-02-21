@@ -23,7 +23,7 @@
             <String label="결제 상태" v-model="value.paymentStatus" :editMode="editMode" :inputUI="''"/>
             <UserId offline label="userId" v-model="value.userId" :editMode="editMode" @change="change"/>
             <StroeId offline label="stroeId" v-model="value.stroeId" :editMode="editMode" @change="change"/>
-            <Manager offline label="메뉴 ID" v-model="value.menuId" :editMode="editMode" @change="change"/>
+            <MenuIdManager offline label="menuIds" v-model="value.menuIds" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

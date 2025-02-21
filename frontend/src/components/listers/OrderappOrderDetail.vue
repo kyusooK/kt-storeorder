@@ -20,7 +20,7 @@
             </div>
             <UserId offline label="UserId" v-model="item.userId" :editMode="false" :key="false" @change="change" />
             <StroeId offline label="StroeId" v-model="item.stroeId" :editMode="false" :key="false" @change="change" />
-            <MenuIdManager offline label="MenuId" v-model="item.menuId" :editMode="false" @change="change" />
+            <MenuIdsManager offline label="MenuIds" v-model="item.menuIds" :editMode="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

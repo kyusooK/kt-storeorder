@@ -74,7 +74,7 @@
                     { text: "paymentStatus", value: "paymentStatus" },
                     { text: "userId", value: "userId" },
                     { text: "stroeId", value: "stroeId" },
-                    { text: "menuId", value: "menuId" },
+                    { text: "menuIds", value: "menuIds" },
                 ],
             order : [],
             newValue: {},
@@ -99,7 +99,7 @@
                 'paymentStatus': '',
                 'userId': {},
                 'stroeId': {},
-                'menuId': [],
+                'menuIds': [],
             }
         },
         methods: {

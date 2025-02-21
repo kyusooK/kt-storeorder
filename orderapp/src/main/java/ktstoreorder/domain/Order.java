@@ -67,7 +67,7 @@ public class Order  {
     
     
     @ElementCollection
-    private List<MenuId> menuId;
+    private List<MenuIds> menuIds;
 
     @PostPersist
     public void onPostPersist(){
