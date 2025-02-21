@@ -14,6 +14,7 @@ public class PickUpNotified extends AbstractEvent {
     private Long id;
     private FoodStatus foodStatus;
     private OrderId orderId;
+    private String storeLocation;
 
     public PickUpNotified(Store aggregate) {
         super(aggregate);
