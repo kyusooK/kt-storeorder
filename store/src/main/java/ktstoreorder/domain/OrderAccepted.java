@@ -17,7 +17,7 @@ public class OrderAccepted extends AbstractEvent {
     private String requestInfo;
     private FoodStatus foodStatus;
 
-    public OrderAccepted(Stroe aggregate) {
+    public OrderAccepted(Store aggregate) {
         super(aggregate);
     }
 

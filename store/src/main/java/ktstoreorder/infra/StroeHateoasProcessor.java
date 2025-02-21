@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StroeHateoasProcessor
-    implements RepresentationModelProcessor<EntityModel<Stroe>> {
+    implements RepresentationModelProcessor<EntityModel<Store>> {
 
     @Override
-    public EntityModel<Stroe> process(EntityModel<Stroe> model) {
+    public EntityModel<Store> process(EntityModel<Store> model) {
         model.add(
             Link
                 .of(model.getRequiredLink("self").getHref() + "/조리")

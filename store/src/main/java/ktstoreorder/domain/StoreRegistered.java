@@ -14,8 +14,9 @@ public class StoreRegistered extends AbstractEvent {
     private Long id;
     private String healthCertificate;
     private String storeInfo;
+    private String storeLocation;
 
-    public StoreRegistered(Stroe aggregate) {
+    public StoreRegistered(Store aggregate) {
         super(aggregate);
     }
 

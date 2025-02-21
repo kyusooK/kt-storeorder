@@ -25,17 +25,17 @@ public class StroeController {
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )
-    public Stroe cook(
+    public Store cook(
         @PathVariable(value = "id") Long id,
         @RequestBody CookCommand cookCommand,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
         System.out.println("##### /stroe/cook  called #####");
-        Optional<Stroe> optionalStroe = stroeRepository.findById(id);
+        Optional<Store> optionalStroe = stroeRepository.findById(id);
 
         optionalStroe.orElseThrow(() -> new Exception("No Entity Found"));
-        Stroe stroe = optionalStroe.get();
+        Store stroe = optionalStroe.get();
         stroe.cook(cookCommand);
 
         stroeRepository.save(stroe);
@@ -47,17 +47,17 @@ public class StroeController {
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )
-    public Stroe notifyPickup(
+    public Store notifyPickup(
         @PathVariable(value = "id") Long id,
         @RequestBody NotifyPickupCommand notifyPickupCommand,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
         System.out.println("##### /stroe/notifyPickup  called #####");
-        Optional<Stroe> optionalStroe = stroeRepository.findById(id);
+        Optional<Store> optionalStroe = stroeRepository.findById(id);
 
         optionalStroe.orElseThrow(() -> new Exception("No Entity Found"));
-        Stroe stroe = optionalStroe.get();
+        Store stroe = optionalStroe.get();
         stroe.notifyPickup(notifyPickupCommand);
 
         stroeRepository.save(stroe);
@@ -69,16 +69,16 @@ public class StroeController {
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )
-    public Stroe approveStore(
+    public Store approveStore(
         @PathVariable(value = "id") Long id,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
         System.out.println("##### /stroe/approveStore  called #####");
-        Optional<Stroe> optionalStroe = stroeRepository.findById(id);
+        Optional<Store> optionalStroe = stroeRepository.findById(id);
 
         optionalStroe.orElseThrow(() -> new Exception("No Entity Found"));
-        Stroe stroe = optionalStroe.get();
+        Store stroe = optionalStroe.get();
         stroe.approveStore();
 
         stroeRepository.save(stroe);
