@@ -102,8 +102,8 @@
 
                     <v-list-item
                         class="px-2"
-                        key="stroes"
-                        to="/stores/stroes"
+                        key="stores"
+                        to="/stores/stores"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -206,9 +206,9 @@ export default {
             },
             { 
                 title: '가게', 
-                description: 'Stroe을 관리하는 화면입니다.', 
-                key: 'stroes', 
-                route: '/stores/stroes',
+                description: 'Store을 관리하는 화면입니다.', 
+                key: 'stores', 
+                route: '/stores/stores',
                 ImageUrl: '',
             },
             { 

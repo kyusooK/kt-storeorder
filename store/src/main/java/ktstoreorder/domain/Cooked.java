@@ -13,8 +13,9 @@ public class Cooked extends AbstractEvent {
 
     private Long id;
     private FoodStatus foodStatus;
+    private OrderId orderId;
 
-    public Cooked(Stroe aggregate) {
+    public Cooked(Store aggregate) {
         super(aggregate);
     }
 

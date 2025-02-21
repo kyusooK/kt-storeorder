@@ -21,7 +21,7 @@ public class PolicyHandler {
     MenuRepository menuRepository;
 
     @Autowired
-    StroeRepository stroeRepository;
+    StoreRepository storeRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
@@ -39,7 +39,7 @@ public class PolicyHandler {
         );
 
         // Sample Logic //
-        Stroe.acceptOrder(event);
+        Store.acceptOrder(event);
     }
 
     @StreamListener(
@@ -57,7 +57,7 @@ public class PolicyHandler {
         );
 
         // Sample Logic //
-        Stroe.receiveMarketingInfo(event);
+        Store.receiveMarketingInfo(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor

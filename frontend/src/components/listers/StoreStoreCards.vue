@@ -8,7 +8,7 @@
         >
             <v-row>
                 <v-list-item class="d-flex" style="background-color: white;">
-                    <h1 class="align-self-center ml-3">프로모션</h1>
+                    <h1 class="align-self-center ml-3">가게</h1>
                     <div class="secondary-text-color" style="margin-left:30px;"></div>
                 </v-list-item>
             </v-row>
@@ -22,7 +22,7 @@
                         hide-overlay
                         transition="dialog-bottom-transition"
                 >
-                    <MarketingPromotion :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" 
+                    <StoreStore :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" 
                             @add="append" v-if="tick"/>
 
                     <v-btn
@@ -61,7 +61,7 @@
                                 color="primary"
                                 style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                             >
-                                프로모션 등록
+                                가게 등록
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -70,7 +70,7 @@
         </v-col>
         <v-row class="ma-0 pa-0">
             <v-col class="pa-4" cols="12" sm="6" md="3" v-for="(value, index) in values" :key="index">
-                <MarketingPromotion :offline="offline"
+                <StoreStore :offline="offline"
                     v-model="values[index]"
                     @delete="remove"/>
             </v-col>
@@ -81,12 +81,12 @@
 <script>
 
     const axios = require('axios').default;
-    import MarketingPromotion from './../MarketingPromotion.vue';
+    import StoreStore from './../StoreStore.vue';
 
     export default {
-        name: 'MarketingPromotionManager',
+        name: 'StoreStoreManager',
         components: {
-            MarketingPromotion,
+            StoreStore,
         },
         props: {
             offline: Boolean
@@ -104,15 +104,21 @@
                 return;
             } 
 
-            var temp = await axios.get(axios.fixUrl('/promotions'))
-            me.values = temp.data._embedded.promotions;
+            var temp = await axios.get(axios.fixUrl('/stores'))
+            me.values = temp.data._embedded.stores;
             
             me.newValue = {
-                'promotionName': '',
-                'content': '',
-                'startAt': '2025-02-21',
-                'endAt': '2025-02-21',
-                'storeId': {},
+                'storeInfo': '',
+                'healthCertificate': '',
+                'storeApproval': false,
+                'orderInfo': '',
+                'requestInfo': '',
+                'foodStatus': '',
+                'reviewId': '',
+                'menuId': {},
+                'orderId': {},
+                'marketInfo': '',
+                'storeLocation': '',
             }
         },
         methods:{

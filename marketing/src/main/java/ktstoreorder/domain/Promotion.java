@@ -28,6 +28,9 @@ public class Promotion {
 
     private Date endAt;
 
+    @Embedded
+    private StoreId storeId;
+
     @PostPersist
     public void onPostPersist() {
         //Following code causes dependency to external APIs

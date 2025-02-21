@@ -14,7 +14,7 @@ public class StoreApproved extends AbstractEvent {
     private Long id;
     private Boolean storeApproval;
 
-    public StoreApproved(Stroe aggregate) {
+    public StoreApproved(Store aggregate) {
         super(aggregate);
     }
 

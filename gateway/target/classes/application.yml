@@ -24,7 +24,7 @@ spring:
         - id: store
           uri: http://localhost:8085
           predicates:
-            - Path=/menus/**, /stroes/**, /getMenus/**
+            - Path=/menus/**, /stores/**, /getMenus/**
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -64,7 +64,7 @@ spring:
         - id: store
           uri: http://store:8080
           predicates:
-            - Path=/menus/**, /stroes/**, 
+            - Path=/menus/**, /stores/**, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

@@ -31,7 +31,7 @@
                         </v-fab-transition>
                     </template>
 
-                    <MarketingPromotion :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
+                    <StoreStore :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
                 
                     <v-btn
                         class="gs-close-btn"
@@ -50,12 +50,12 @@
 
 <script>
     const axios = require('axios').default;
-    import MarketingPromotion from './../MarketingPromotion.vue';
+    import StoreStore from './../StoreStore.vue';
 
     export default {
-        name: 'MarketingPromotionManager',
+        name: 'StoreStoreManager',
         components: {
-            MarketingPromotion,
+            StoreStore,
         },
         props: {
             offline: Boolean,
@@ -67,13 +67,19 @@
             headers: 
                 [
                     { text: "id", value: "id" },
-                    { text: "promotionName", value: "promotionName" },
-                    { text: "content", value: "content" },
-                    { text: "startAt", value: "startAt" },
-                    { text: "endAt", value: "endAt" },
-                    { text: "storeId", value: "storeId" },
+                    { text: "storeInfo", value: "storeInfo" },
+                    { text: "healthCertificate", value: "healthCertificate" },
+                    { text: "storeApproval", value: "storeApproval" },
+                    { text: "orderInfo", value: "orderInfo" },
+                    { text: "requestInfo", value: "requestInfo" },
+                    { text: "foodStatus", value: "foodStatus" },
+                    { text: "reviewId", value: "reviewId" },
+                    { text: "menuId", value: "menuId" },
+                    { text: "orderId", value: "orderId" },
+                    { text: "marketInfo", value: "marketInfo" },
+                    { text: "storeLocation", value: "storeLocation" },
                 ],
-            promotion : [],
+            store : [],
             newValue: {},
             tick : true,
             openDialog : false,
@@ -84,16 +90,22 @@
                 return;
             }
 
-            var temp = await axios.get(axios.fixUrl('/promotions'))
-            temp.data._embedded.promotions.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
-            this.values = temp.data._embedded.promotions;
+            var temp = await axios.get(axios.fixUrl('/stores'))
+            temp.data._embedded.stores.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
+            this.values = temp.data._embedded.stores;
 
             this.newValue = {
-                'promotionName': '',
-                'content': '',
-                'startAt': '2025-02-21',
-                'endAt': '2025-02-21',
-                'storeId': {},
+                'storeInfo': '',
+                'healthCertificate': '',
+                'storeApproval': false,
+                'orderInfo': '',
+                'requestInfo': '',
+                'foodStatus': '',
+                'reviewId': '',
+                'menuId': {},
+                'orderId': {},
+                'marketInfo': '',
+                'storeLocation': '',
             }
         },
         methods: {

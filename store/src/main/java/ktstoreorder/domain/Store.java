@@ -13,43 +13,84 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Entity
-@Table(name="Stroe_table")
+@Table(name="Store_table")
 @Data
 
 //<<< DDD / Aggregate Root
-public class Stroe  {
+public class Store  {
+
+
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    
+    
+    
+    
     private Long id;
+    
+    
+    
     
     private String storeInfo;
     
+    
+    
+    
     private String healthCertificate;
+    
+    
+    
     
     private Boolean storeApproval;
     
+    
+    
+    
     private String orderInfo;
     
+    
+    
+    
     private String requestInfo;
+    
+    
     
     @Enumerated(EnumType.STRING)
     private FoodStatus foodStatus;
     
+    
+    
+    
     private String reviewId;
+    
+    
     
     @Embedded
     private MenuId menuId;
     
+    
+    
     @Embedded
     private OrderId orderId;
     
+    
+    
+    
     private String marketInfo;
+    
+    
+    
+    
+    private String storeLocation;
 
-    public static StroeRepository repository(){
-        StroeRepository stroeRepository = StoreApplication.applicationContext.getBean(StroeRepository.class);
-        return stroeRepository;
+
+    public static StoreRepository repository(){
+        StoreRepository storeRepository = StoreApplication.applicationContext.getBean(StoreRepository.class);
+        return storeRepository;
     }
+
+
 
 //<<< Clean Arch / Port Method
     public void cook(CookCommand cookCommand){
@@ -76,11 +117,11 @@ public class Stroe  {
             .createReservation(reservation);
 
 
-        // ktstoreorder.external.MenuQuery menuQuery = new ktstoreorder.external.MenuQuery();
-        // // menuQuery.set??()        
-        //   = StroeApplication.applicationContext
-        //     .getBean(ktstoreorder.external.Service.class)
-        //     .menu(menuQuery);
+        ktstoreorder.external.MenuQuery menuQuery = new ktstoreorder.external.MenuQuery();
+        // menuQuery.set??()        
+          = StoreApplication.applicationContext
+            .getBean(ktstoreorder.external.Service.class)
+            .menu(menuQuery);
 
         PickUpNotified pickUpNotified = new PickUpNotified(this);
         pickUpNotified.publishAfterCommit();
@@ -104,28 +145,28 @@ public class Stroe  {
         //implement business logic here:
         
         /** Example 1:  new item 
-        Stroe stroe = new Stroe();
-        repository().save(stroe);
+        Store store = new Store();
+        repository().save(store);
 
-        OrderAccepted orderAccepted = new OrderAccepted(stroe);
+        OrderAccepted orderAccepted = new OrderAccepted(store);
         orderAccepted.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
         
-        // if orderPlaced.userIdstroeIdmenuId exists, use it
+        // if orderPlaced.userIdstoreIdmenuId exists, use it
         
         // ObjectMapper mapper = new ObjectMapper();
         // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getUserId(), Map.class);
-        // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getStroeId(), Map.class);
+        // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getStoreId(), Map.class);
         // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getMenuId(), Map.class);
 
-        repository().findById(orderPlaced.get???()).ifPresent(stroe->{
+        repository().findById(orderPlaced.get???()).ifPresent(store->{
             
-            stroe // do something
-            repository().save(stroe);
+            store // do something
+            repository().save(store);
 
-            OrderAccepted orderAccepted = new OrderAccepted(stroe);
+            OrderAccepted orderAccepted = new OrderAccepted(store);
             orderAccepted.publishAfterCommit();
 
          });
@@ -140,18 +181,18 @@ public class Stroe  {
         //implement business logic here:
         
         /** Example 1:  new item 
-        Stroe stroe = new Stroe();
-        repository().save(stroe);
+        Store store = new Store();
+        repository().save(store);
 
         */
 
         /** Example 2:  finding and process
         
 
-        repository().findById(reservationCreated.get???()).ifPresent(stroe->{
+        repository().findById(reservationCreated.get???()).ifPresent(store->{
             
-            stroe // do something
-            repository().save(stroe);
+            store // do something
+            repository().save(store);
 
 
          });
