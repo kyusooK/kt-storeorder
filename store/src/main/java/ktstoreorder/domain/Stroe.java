@@ -18,77 +18,38 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 //<<< DDD / Aggregate Root
 public class Stroe  {
-
-
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
     private Long id;
-    
-    
-    
     
     private String storeInfo;
     
-    
-    
-    
     private String healthCertificate;
-    
-    
-    
     
     private Boolean storeApproval;
     
-    
-    
-    
     private String orderInfo;
     
-    
-    
-    
     private String requestInfo;
-    
-    
     
     @Enumerated(EnumType.STRING)
     private FoodStatus foodStatus;
     
-    
-    
-    
     private String reviewId;
-    
-    
     
     @Embedded
     private MenuId menuId;
     
-    
-    
     @Embedded
     private OrderId orderId;
     
-    
-    
-    
     private String marketInfo;
-
 
     public static StroeRepository repository(){
         StroeRepository stroeRepository = StoreApplication.applicationContext.getBean(StroeRepository.class);
         return stroeRepository;
     }
-
-    public void 조리(){
-        //
-    }
-
 
 //<<< Clean Arch / Port Method
     public void cook(CookCommand cookCommand){
@@ -115,11 +76,11 @@ public class Stroe  {
             .createReservation(reservation);
 
 
-        ktstoreorder.external.MenuQuery menuQuery = new ktstoreorder.external.MenuQuery();
-        // menuQuery.set??()        
-          = StroeApplication.applicationContext
-            .getBean(ktstoreorder.external.Service.class)
-            .menu(menuQuery);
+        // ktstoreorder.external.MenuQuery menuQuery = new ktstoreorder.external.MenuQuery();
+        // // menuQuery.set??()        
+        //   = StroeApplication.applicationContext
+        //     .getBean(ktstoreorder.external.Service.class)
+        //     .menu(menuQuery);
 
         PickUpNotified pickUpNotified = new PickUpNotified(this);
         pickUpNotified.publishAfterCommit();
