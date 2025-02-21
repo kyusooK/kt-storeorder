@@ -74,12 +74,12 @@ public class PolicyHandler {
         condition = "headers['type']=='RequstPaymentCompleted'"
     )
     public void wheneverRequstPaymentCompleted_UpdatePaymentInfo(
-        @Payload RequstPaymentCompleted requstPaymentCompleted
+        @Payload RequestPaymentCompleted requestPaymentCompleted
     ) {
-        RequstPaymentCompleted event = requstPaymentCompleted;
+        RequestPaymentCompleted event = requestPaymentCompleted;
         System.out.println(
             "\n\n##### listener UpdatePaymentInfo : " +
-            requstPaymentCompleted +
+            requestPaymentCompleted +
             "\n\n"
         );
 

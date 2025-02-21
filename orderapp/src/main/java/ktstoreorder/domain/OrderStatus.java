@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 
 public enum OrderStatus {
     ORDERPLACED,
+    ACCEPTED,
     COOKED,
     COMPLETED,
 }

@@ -38,7 +38,7 @@ public class Order  {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     
-    private String paymentId;
+    private Long paymentId;
     
     private String paymentStatus;
 
@@ -117,69 +117,36 @@ public class Order  {
 //<<< Clean Arch / Port Method
     public static void updateOrderStatus(OrderAccepted orderAccepted){
         
-        //implement business logic here:
-        
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Long, Object> storeMap = mapper.convertValue(orderAccepted.getOrderId(), Map.class);
 
-        OrderStatusUpdated orderStatusUpdated = new OrderStatusUpdated(order);
-        orderStatusUpdated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        // if orderAccepted.menuIdorderId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(orderAccepted.getMenuId(), Map.class);
-        // Map<Long, Object> storeMap = mapper.convertValue(orderAccepted.getOrderId(), Map.class);
-
-        repository().findById(orderAccepted.get???()).ifPresent(order->{
+        repository().findById(Long.valueOf(storeMap.get("id").toString())).ifPresent(order->{
             
-            order // do something
+            order.setOrderStatus(OrderStatus.ACCEPTED); // do something
             repository().save(order);
 
             OrderStatusUpdated orderStatusUpdated = new OrderStatusUpdated(order);
             orderStatusUpdated.publishAfterCommit();
 
-         });
-        */
-
+        });
         
     }
 //>>> Clean Arch / Port Method
 //<<< Clean Arch / Port Method
     public static void updateOrderStatus(Cooked cooked){
         
-        //implement business logic here:
-        
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Long, Object> storeMap = mapper.convertValue(cooked.getOrderId(), Map.class);
 
-        OrderStatusUpdated orderStatusUpdated = new OrderStatusUpdated(order);
-        orderStatusUpdated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        // if cooked.menuIdorderId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(cooked.getMenuId(), Map.class);
-        // Map<Long, Object> storeMap = mapper.convertValue(cooked.getOrderId(), Map.class);
-
-        repository().findById(cooked.get???()).ifPresent(order->{
+        repository().findById(Long.valueOf(storeMap.get("id").toString())).ifPresent(order->{
             
-            order // do something
+            order.setOrderStatus(OrderStatus.COOKED); // do something
             repository().save(order);
 
             OrderStatusUpdated orderStatusUpdated = new OrderStatusUpdated(order);
             orderStatusUpdated.publishAfterCommit();
 
-         });
-        */
+        });
 
         
     }
@@ -187,60 +154,31 @@ public class Order  {
 //<<< Clean Arch / Port Method
     public static void updateOrderStatus(PickUpNotified pickUpNotified){
         
-        //implement business logic here:
-        
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Long, Object> storeMap = mapper.convertValue(pickUpNotified.getOrderId(), Map.class);
 
-        OrderStatusUpdated orderStatusUpdated = new OrderStatusUpdated(order);
-        orderStatusUpdated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        // if pickUpNotified.menuIdorderId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(pickUpNotified.getMenuId(), Map.class);
-        // Map<Long, Object> storeMap = mapper.convertValue(pickUpNotified.getOrderId(), Map.class);
-
-        repository().findById(pickUpNotified.get???()).ifPresent(order->{
+        repository().findById(Long.valueOf(storeMap.get("id").toString())).ifPresent(order->{
             
-            order // do something
+            order.setOrderStatus(OrderStatus.COMPLETED); // do something
             repository().save(order);
 
             OrderStatusUpdated orderStatusUpdated = new OrderStatusUpdated(order);
             orderStatusUpdated.publishAfterCommit();
 
-         });
-        */
+        });
 
         
     }
 //>>> Clean Arch / Port Method
 //<<< Clean Arch / Port Method
-    public static void updatePaymentInfo(RequstPaymentCompleted requstPaymentCompleted){
+    public static void updatePaymentInfo(RequestPaymentCompleted requestPaymentCompleted){
         
-        //implement business logic here:
-        
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
-
-        */
-
-        /** Example 2:  finding and process
-        
-
-        repository().findById(requstPaymentCompleted.get???()).ifPresent(order->{
+        repository().findById(requestPaymentCompleted.getItemId()).ifPresent(order->{
             
-            order // do something
+            order.setPaymentId(requestPaymentCompleted.getId()); // do something
+            order.setPaymentStatus(requestPaymentCompleted.getStatus());
             repository().save(order);
-
-
-         });
-        */
+        });
 
         
     }
