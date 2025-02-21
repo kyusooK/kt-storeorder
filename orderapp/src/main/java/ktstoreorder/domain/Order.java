@@ -179,8 +179,6 @@ public class Order  {
             order.setPaymentStatus(requestPaymentCompleted.getStatus());
             repository().save(order);
         });
-
-        
     }
 //>>> Clean Arch / Port Method
 
