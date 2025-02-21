@@ -71,11 +71,6 @@ public class Store  {
     
     
     
-    @Embedded
-    private OrderId orderId;
-    
-    
-    
     
     private String marketInfo;
     
@@ -83,6 +78,11 @@ public class Store  {
     
     
     private String storeLocation;
+    
+    
+    
+    @Embedded
+    private OrderId orderId;
 
 
     public static StoreRepository repository(){
@@ -154,12 +154,12 @@ public class Store  {
 
         /** Example 2:  finding and process
         
-        // if orderPlaced.userIdstoreIdmenuId exists, use it
+        // if orderPlaced.userIdmenuIdstoreId exists, use it
         
         // ObjectMapper mapper = new ObjectMapper();
         // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getUserId(), Map.class);
-        // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getStoreId(), Map.class);
         // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getMenuId(), Map.class);
+        // Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getStoreId(), Map.class);
 
         repository().findById(orderPlaced.get???()).ifPresent(store->{
             

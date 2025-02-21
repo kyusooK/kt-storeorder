@@ -35,7 +35,7 @@ mvn spring-boot:run
 ## Test by API
 - orderapp
 ```
- http :8088/orders id="id"requestInfo="requestInfo"price="price"OrderStatus = "ORDERPLACED"paymentId="paymentId"paymentStatus="paymentStatus"UserId := '{"id": 0}'StroeId := '{"id": 0}'orderInfo="orderInfo"
+ http :8088/orders id="id"requestInfo="requestInfo"price="price"OrderStatus = "ORDERPLACED"paymentId="paymentId"paymentStatus="paymentStatus"UserId := '{"id": 0}'MenuIds := '{"id": 0}'orderInfo="orderInfo"StoreId := '{"id": 0}'
 ```
 - user
 ```
@@ -49,7 +49,7 @@ mvn spring-boot:run
 - store
 ```
  http :8088/menus id="id"menuName="menuName"price="price"menuInfo="menuInfo"ingredients="ingredients"
- http :8088/stores id="id"storeInfo="storeInfo"healthCertificate=" healthCertificate"storeApproval="storeApproval"orderInfo="orderInfo"requestInfo="requestInfo"FoodStatus = "ACCEPTED"reviewId="reviewId"MenuId := '{"id": 0}'OrderId := '{"id": 0}'marketInfo="marketInfo"storeLocation="storeLocation"
+ http :8088/stores id="id"storeInfo="storeInfo"healthCertificate=" healthCertificate"storeApproval="storeApproval"orderInfo="orderInfo"requestInfo="requestInfo"FoodStatus = "ACCEPTED"reviewId="reviewId"MenuId := '{"id": 0}'marketInfo="marketInfo"storeLocation="storeLocation"
 ```
 
 

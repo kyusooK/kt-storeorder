@@ -62,17 +62,17 @@ public class Order  {
     
     
     @Embedded
-    private StroeId stroeId;
-    
-    
-    
-    @ElementCollection
-    private List<MenuIds> menuIds;
+    private MenuIds menuIds;
     
     
     
     
     private String orderInfo;
+    
+    
+    
+    @Embedded
+    private StoreId storeId;
 
     @PostPersist
     public void onPostPersist(){

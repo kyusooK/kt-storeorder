@@ -60,9 +60,9 @@
                             [ PaymentId :  {{data.paymentId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ PaymentStatus :  {{data.paymentStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UserId :  {{data.userId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ StroeId :  {{data.stroeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ MenuIds :  {{data.menuIds }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ OrderInfo :  {{data.orderInfo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ StoreId :  {{data.storeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -136,9 +136,9 @@
                 'paymentId': '',
                 'paymentStatus': '',
                 'userId': {},
-                'stroeId': {},
-                'menuIds': [],
+                'menuIds': {},
                 'orderInfo': '',
+                'storeId': {},
             }
         },
         methods: {

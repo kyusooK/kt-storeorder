@@ -24,9 +24,9 @@
             <FoodStatus offline label="음식상태" v-model="value.foodStatus" :editMode="editMode" @change="change"/>
             <String label="리뷰ID" v-model="value.reviewId" :editMode="editMode" :inputUI="''"/>
             <MenuId offline label="menuId" v-model="value.menuId" :editMode="editMode" @change="change"/>
-            <OrderId offline label="orderId" v-model="value.orderId" :editMode="editMode" @change="change"/>
             <String label="마켓팅정보" v-model="value.marketInfo" :editMode="editMode" :inputUI="''"/>
             <String label="가게 위치" v-model="value.storeLocation" :editMode="editMode" :inputUI="''"/>
+            <OrderId offline label="order ID" v-model="value.orderId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

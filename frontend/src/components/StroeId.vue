@@ -48,7 +48,7 @@
             }
             else {
                 this.newValue = this.value;
-                var path = '/stroes';
+                var path = '/stores';
                 var temp = await axios.get(axios.fixUrl(path + '/' +  Object.values(this.value)[0]));
                 if(temp.data) {
                     this.referenceValue = temp.data
@@ -89,7 +89,7 @@
                 this.$emit('change', this.value);
             },
             openDialog() {
-                var path = '/stroes/';
+                var path = '/stores/';
 
                 if(this.editMode) {
                     this.pickerDialog = true;
@@ -100,7 +100,7 @@
             },
             async pick(val){
                 this.newValue = val;
-                var path = '/stroes';
+                var path = '/stores';
                 var temp = await axios.get(axios.fixUrl(path + '/' + val.stroeId));
                 if(temp.data) {
                     this.referenceValue = temp.data;

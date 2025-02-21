@@ -38,5 +38,54 @@ public class OrderPageViewHandler {
             e.printStackTrace();
         }
     }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenCooked_then_UPDATE_1(@Payload Cooked cooked) {
+        try {
+            if (!cooked.validate()) return;
+            // view 객체 조회
+            Optional<OrderPage> orderPageOptional = orderPageRepository.findById(
+                Long.valueOf(cooked.getOrderId())
+            );
+
+            if (orderPageOptional.isPresent()) {
+                OrderPage orderPage = orderPageOptional.get();
+                // view 객체에 이벤트의 eventDirectValue 를 set 함
+                orderPage.setOrderStatus(
+                    String.valueOf(cooked.getFoodStatus())
+                );
+                // view 레파지 토리에 save
+                orderPageRepository.save(orderPage);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenPickUpNotified_then_UPDATE_2(
+        @Payload PickUpNotified pickUpNotified
+    ) {
+        try {
+            if (!pickUpNotified.validate()) return;
+            // view 객체 조회
+            Optional<OrderPage> orderPageOptional = orderPageRepository.findById(
+                Long.valueOf(pickUpNotified.getOrderId())
+            );
+
+            if (orderPageOptional.isPresent()) {
+                OrderPage orderPage = orderPageOptional.get();
+                // view 객체에 이벤트의 eventDirectValue 를 set 함
+                orderPage.setOrderStatus(
+                    String.valueOf(pickUpNotified.getFoodStatus())
+                );
+                orderPage.setPickUpLocation(pickUpNotified.getStoreLocation());
+                // view 레파지 토리에 save
+                orderPageRepository.save(orderPage);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     //>>> DDD / CQRS
 }

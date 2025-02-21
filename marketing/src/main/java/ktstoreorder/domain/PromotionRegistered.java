@@ -12,6 +12,11 @@ import lombok.*;
 public class PromotionRegistered extends AbstractEvent {
 
     private Long id;
+    private String promotionName;
+    private String content;
+    private Date startAt;
+    private Date endAt;
+    private StoreId storeId;
 
     public PromotionRegistered(Promotion aggregate) {
         super(aggregate);

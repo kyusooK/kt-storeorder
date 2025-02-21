@@ -33,13 +33,13 @@
                                 UserId :  {{item.userId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                StroeId :  {{item.stroeId }}
-                            </v-list-item-subtitle>
-                            <v-list-item-subtitle>
                                 MenuIds :  {{item.menuIds }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 OrderInfo :  {{item.orderInfo }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                StoreId :  {{item.storeId }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

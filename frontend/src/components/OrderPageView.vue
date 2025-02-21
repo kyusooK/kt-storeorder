@@ -25,6 +25,7 @@
                 { text: "orderInfo", value: "orderInfo" },
                 { text: "requestInfo", value: "requestInfo" },
                 { text: "orderStatus", value: "orderStatus" },
+                { text: "pickUpLocation", value: "pickUpLocation" },
             ],
             orderPage : [],
         }),

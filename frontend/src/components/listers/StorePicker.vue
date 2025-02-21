@@ -39,13 +39,13 @@
                                 MenuId :  {{item.menuId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                OrderId :  {{item.orderId }}
-                            </v-list-item-subtitle>
-                            <v-list-item-subtitle>
                                 MarketInfo :  {{item.marketInfo }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 StoreLocation :  {{item.storeLocation }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                OrderId :  {{item.orderId }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 
