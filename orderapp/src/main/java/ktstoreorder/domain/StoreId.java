@@ -14,7 +14,6 @@ import org.springframework.beans.BeanUtils;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StoreId {
-
     private Long id;
 }
 //>>> DDD / Value Object

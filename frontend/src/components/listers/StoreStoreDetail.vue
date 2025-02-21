@@ -25,13 +25,13 @@
                 <String label="ReviewId" v-model="item.reviewId" :editMode="editMode" @change="change" />
             </div>
             <MenuId offline label="MenuId" v-model="item.menuId" :editMode="false" :key="false" @change="change" />
-            <OrderId offline label="OrderId" v-model="item.orderId" :editMode="false" :key="false" @change="change" />
             <div>
                 <String label="MarketInfo" v-model="item.marketInfo" :editMode="editMode" @change="change" />
             </div>
             <div>
                 <String label="StoreLocation" v-model="item.storeLocation" :editMode="editMode" @change="change" />
             </div>
+            <OrderId offline label="OrderId" v-model="item.orderId" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

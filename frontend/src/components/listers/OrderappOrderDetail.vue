@@ -19,11 +19,11 @@
                 <String label="PaymentStatus" v-model="item.paymentStatus" :editMode="editMode" @change="change" />
             </div>
             <UserId offline label="UserId" v-model="item.userId" :editMode="false" :key="false" @change="change" />
-            <StroeId offline label="StroeId" v-model="item.stroeId" :editMode="false" :key="false" @change="change" />
-            <MenuIdsManager offline label="MenuIds" v-model="item.menuIds" :editMode="false" @change="change" />
+            <MenuIds offline label="MenuIds" v-model="item.menuIds" :editMode="false" :key="false" @change="change" />
             <div>
                 <String label="OrderInfo" v-model="item.orderInfo" :editMode="editMode" @change="change" />
             </div>
+            <StoreId offline label="StoreId" v-model="item.storeId" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

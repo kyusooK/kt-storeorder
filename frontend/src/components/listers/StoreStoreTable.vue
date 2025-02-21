@@ -75,9 +75,9 @@
                     { text: "foodStatus", value: "foodStatus" },
                     { text: "reviewId", value: "reviewId" },
                     { text: "menuId", value: "menuId" },
-                    { text: "orderId", value: "orderId" },
                     { text: "marketInfo", value: "marketInfo" },
                     { text: "storeLocation", value: "storeLocation" },
+                    { text: "orderId", value: "orderId" },
                 ],
             store : [],
             newValue: {},
@@ -103,9 +103,9 @@
                 'foodStatus': '',
                 'reviewId': '',
                 'menuId': {},
-                'orderId': {},
                 'marketInfo': '',
                 'storeLocation': '',
+                'orderId': {},
             }
         },
         methods: {

@@ -64,9 +64,9 @@
                             [ FoodStatus :  {{data.foodStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ ReviewId :  {{data.reviewId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ MenuId :  {{data.menuId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ MarketInfo :  {{data.marketInfo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ StoreLocation :  {{data.storeLocation }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -142,9 +142,9 @@
                 'foodStatus': '',
                 'reviewId': '',
                 'menuId': {},
-                'orderId': {},
                 'marketInfo': '',
                 'storeLocation': '',
+                'orderId': {},
             }
         },
         methods: {

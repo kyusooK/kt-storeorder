@@ -114,9 +114,9 @@
                 'paymentId': '',
                 'paymentStatus': '',
                 'userId': {},
-                'stroeId': {},
-                'menuIds': [],
+                'menuIds': {},
                 'orderInfo': '',
+                'storeId': {},
             }
         },
         methods:{

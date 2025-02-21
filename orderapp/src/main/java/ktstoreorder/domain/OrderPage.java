@@ -19,4 +19,5 @@ public class OrderPage {
     private String orderInfo;
     private String requestInfo;
     private String orderStatus;
+    private String pickUpLocation;
 }

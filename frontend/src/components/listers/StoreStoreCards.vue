@@ -116,9 +116,9 @@
                 'foodStatus': '',
                 'reviewId': '',
                 'menuId': {},
-                'orderId': {},
                 'marketInfo': '',
                 'storeLocation': '',
+                'orderId': {},
             }
         },
         methods:{

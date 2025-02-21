@@ -72,7 +72,7 @@ public class Store  {
     public static void acceptOrder(OrderPlaced orderPlaced){
         
         ObjectMapper mapper = new ObjectMapper();
-        Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getStroeId(), Map.class);
+        Map<Long, Object> orderMap = mapper.convertValue(orderPlaced.getStoreId(), Map.class);
 
         repository().findById(Long.valueOf(orderMap.get("id").toString())).ifPresent(store->{
             

@@ -14,7 +14,7 @@ public class OrderPlaced extends AbstractEvent {
     private Object orderStatus;
     private Object userId;
     private Long price;
-    private Object stroeId;
     private Object menuIds;
     private String orderInfo;
+    private Object storeId;
 }

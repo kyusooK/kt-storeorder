@@ -15,6 +15,9 @@
             <div>
                 <String label="OrderStatus" v-model="item.orderStatus" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <String label="PickUpLocation" v-model="item.pickUpLocation" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
     </v-card>
 
