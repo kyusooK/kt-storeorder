@@ -30,7 +30,11 @@ public class Coupon {
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
         ktstoreorder.external.Reservation reservation = new ktstoreorder.external.Reservation();
-        // mappings goes here
+        reservation.setTaskId(this.getId().toString());
+        reservation.setTitle(this.getCouponName());
+        // reservation.setTargetUserIds();
+        reservation.setDescription("쿠폰 내용: " + this.getContent());
+        reservation.setNow(true);
         MarketingApplication.applicationContext
             .getBean(ktstoreorder.external.ReservationService.class)
             .createReservation(reservation);

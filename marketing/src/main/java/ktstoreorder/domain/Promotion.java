@@ -37,7 +37,11 @@ public class Promotion {
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
         ktstoreorder.external.Reservation reservation = new ktstoreorder.external.Reservation();
-        // mappings goes here
+        reservation.setTaskId(this.getId().toString());
+            reservation.setTitle(this.getPromotionName());
+            // reservation.setTargetUserIds();
+            reservation.setDescription("기간: " + this.getStartAt().toString() + " ~ " + this.getEndAt().toString() + "프로모션 내용: "  +  this.getContent());
+            reservation.setNow(true);
         MarketingApplication.applicationContext
             .getBean(ktstoreorder.external.ReservationService.class)
             .createReservation(reservation);
