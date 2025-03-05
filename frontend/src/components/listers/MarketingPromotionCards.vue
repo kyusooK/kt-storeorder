@@ -15,16 +15,9 @@
         </v-card>
         <v-col style="margin-bottom:40px;">
             <div class="text-center">
-                <v-dialog
-                        v-model="openDialog"
-                        width="332.5"
-                        fullscreen
-                        hide-overlay
-                        transition="dialog-bottom-transition"
-                >
+                <v-dialog v-model="openDialog" width="500">
                     <MarketingPromotion :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" 
                             @add="append" v-if="tick"/>
-
                     <v-btn
                         class="gs-close-btn"
                         @click="closeDialog()"
@@ -110,8 +103,8 @@
             me.newValue = {
                 'promotionName': '',
                 'content': '',
-                'startAt': '2025-02-21',
-                'endAt': '2025-02-21',
+                'startAt': '2025-03-05',
+                'endAt': '2025-03-05',
                 'storeId': {},
             }
         },

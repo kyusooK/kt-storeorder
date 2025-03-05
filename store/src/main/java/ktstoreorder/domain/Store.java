@@ -176,7 +176,7 @@ public class Store  {
     }
 //>>> Clean Arch / Port Method
 //<<< Clean Arch / Port Method
-    public static void receiveMarketingInfo(ReservationCreated reservationCreated){
+    public static void receiveMarketingInfo(PromotionRegistered promotionRegistered){
         
         //implement business logic here:
         
@@ -188,8 +188,12 @@ public class Store  {
 
         /** Example 2:  finding and process
         
+        // if promotionRegistered.storeId exists, use it
+        
+        // ObjectMapper mapper = new ObjectMapper();
+        // Map<Long, Object> promotionMap = mapper.convertValue(promotionRegistered.getStoreId(), Map.class);
 
-        repository().findById(reservationCreated.get???()).ifPresent(store->{
+        repository().findById(promotionRegistered.get???()).ifPresent(store->{
             
             store // do something
             repository().save(store);

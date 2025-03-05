@@ -23,7 +23,7 @@
             <div>
                 <String label="OrderInfo" v-model="item.orderInfo" :editMode="editMode" @change="change" />
             </div>
-            <StoreId offline label="StoreId" v-model="item.storeId" :editMode="false" :key="false" @change="change" />
+            <MenuId offline label="MenuIds" v-model="item.menuIds" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

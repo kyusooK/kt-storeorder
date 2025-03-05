@@ -72,7 +72,7 @@ public class Order  {
     
     
     @Embedded
-    private StoreId storeId;
+    private MenuId menuIds;
 
     @PostPersist
     public void onPostPersist(){
