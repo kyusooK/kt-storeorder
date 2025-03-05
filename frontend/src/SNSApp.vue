@@ -130,9 +130,7 @@
                 </div>
                 <v-row class="pa-0 ma-0">
                     <v-col cols="4" class="pa-0 pa-0" v-for="(aggregate, index) in aggregate" :key="index">
-                        <div 
-                            class="flip-card pa-4"
-                        >
+                        <div class="pa-4">
                             <v-card
                                 :key="aggregate.key"
                                 :to="aggregate.route"

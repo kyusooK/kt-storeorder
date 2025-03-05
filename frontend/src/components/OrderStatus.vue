@@ -1,17 +1,17 @@
 <template>
-    <div style="margin: 0 -15px 0 -15px;">
+    <div>
         <v-card-title>
             OrderStatus
         </v-card-title>
         <v-card-text>
-            <div v-if="editMode" style="margin-top:-20px;">
+            <div v-if="editMode">
                 <v-select
                         v-model="newValue"
                         :label="'name'"
                         :items="orderStatusList"
                 ></v-select>
             </div>
-            <div v-else style="margin-top:-20px;">
+            <div v-else>
                 OrderStatus : {{ value }}
             </div>
         </v-card-text>

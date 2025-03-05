@@ -44,15 +44,15 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='ReservationCreated'"
+        condition = "headers['type']=='PromotionRegistered'"
     )
-    public void wheneverReservationCreated_ReceiveMarketingInfo(
-        @Payload ReservationCreated reservationCreated
+    public void wheneverPromotionRegistered_ReceiveMarketingInfo(
+        @Payload PromotionRegistered promotionRegistered
     ) {
-        ReservationCreated event = reservationCreated;
+        PromotionRegistered event = promotionRegistered;
         System.out.println(
             "\n\n##### listener ReceiveMarketingInfo : " +
-            reservationCreated +
+            promotionRegistered +
             "\n\n"
         );
 

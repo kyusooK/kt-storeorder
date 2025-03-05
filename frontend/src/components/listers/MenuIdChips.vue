@@ -1,5 +1,5 @@
 <template>
-    <div style="margin: 0 -15px 0 -15px;">
+    <div>
         <v-list two-line v-if="value.length > 0">
             <v-list-group v-model="isExpansion">
                 <template v-slot:activator>

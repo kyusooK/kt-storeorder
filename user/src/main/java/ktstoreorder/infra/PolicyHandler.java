@@ -25,18 +25,16 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='ReservationCreated'"
+        condition = "headers['type']=='CouponSent'"
     )
-    public void wheneverReservationCreated_NotifyToUser(
-        @Payload ReservationCreated reservationCreated
-    ) {
-        ReservationCreated event = reservationCreated;
+    public void wheneverCouponSent_SendCoupon(@Payload CouponSent couponSent) {
+        CouponSent event = couponSent;
         System.out.println(
-            "\n\n##### listener NotifyToUser : " + reservationCreated + "\n\n"
+            "\n\n##### listener SendCoupon : " + couponSent + "\n\n"
         );
 
         // Sample Logic //
-        User.notifyToUser(event);
+        User.sendCoupon(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor

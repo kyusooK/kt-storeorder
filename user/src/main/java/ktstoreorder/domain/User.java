@@ -35,7 +35,7 @@ public class User {
     }
 
     //<<< Clean Arch / Port Method
-    public static void notifyToUser(ReservationCreated reservationCreated) {
+    public static void sendCoupon(CouponSent couponSent) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -47,7 +47,7 @@ public class User {
         /** Example 2:  finding and process
         
 
-        repository().findById(reservationCreated.get???()).ifPresent(user->{
+        repository().findById(couponSent.get???()).ifPresent(user->{
             
             user // do something
             repository().save(user);

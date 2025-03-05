@@ -24,7 +24,7 @@
             <UserId offline label="userId" v-model="value.userId" :editMode="editMode" @change="change"/>
             <MenuIds offline label="menuIds" v-model="value.menuIds" :editMode="editMode" @change="change"/>
             <String label="주문정보" v-model="value.orderInfo" :editMode="editMode" :inputUI="''"/>
-            <StoreId offline label="storeId" v-model="value.storeId" :editMode="editMode" @change="change"/>
+            <MenuId offline label="storeId" v-model="value.menuIds" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

@@ -62,7 +62,7 @@
                             [ UserId :  {{data.userId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ MenuIds :  {{data.menuIds }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ OrderInfo :  {{data.orderInfo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ StoreId :  {{data.storeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ MenuIds :  {{data.menuIds }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -74,16 +74,8 @@
 
         <v-col style="margin-bottom:40px;">
             <div class="text-center">
-                <v-dialog
-                        v-model="openDialog"
-                        width="332.5"
-                        fullscreen
-                        hide-overlay
-                        transition="dialog-bottom-transition"
-                >
-
+                <v-dialog v-model="openDialog" width="500">
                     <OrderappOrder :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
-                
                     <v-btn
                         class="gs-close-btn"
                         @click="closeDialog()"
@@ -138,7 +130,7 @@
                 'userId': {},
                 'menuIds': {},
                 'orderInfo': '',
-                'storeId': {},
+                'menuIds': {},
             }
         },
         methods: {

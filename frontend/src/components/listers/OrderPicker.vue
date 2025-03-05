@@ -39,7 +39,7 @@
                                 OrderInfo :  {{item.orderInfo }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                StoreId :  {{item.storeId }}
+                                MenuIds :  {{item.menuIds }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 
